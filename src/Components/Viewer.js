@@ -1,6 +1,9 @@
 import React from "react";
 import Viewer from "react-viewer";
-import * as jpgResume from "../Images/jpegResume.jpg";
+
+const jpgResume = require("../Images/jpegResume.jpg");
+const test = require("../Images/test.png");
+const tiffResume = require("../Images/flaniganResume.tiff");
 
 const AppViewer = () => {
   const [visible, setVisible] = React.useState(false);
@@ -9,9 +12,6 @@ const AppViewer = () => {
   return (
     <>
       <div>
-        <div>
-          <img src="../images/test.png" alt=""></img>
-        </div>
         <button
           onClick={() => {
             setVisible(true);
@@ -26,7 +26,11 @@ const AppViewer = () => {
           }}
           images={[
             {
-              src: "../Images/jpegResume.jpg",
+              src: test,
+              alt: "",
+            },
+            {
+              src: tiffResume,
               alt: "",
             },
           ]}
