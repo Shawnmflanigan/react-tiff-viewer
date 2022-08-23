@@ -3,8 +3,9 @@ import UTIF from "utif";
 import { Image, Layer, Stage } from "react-konva";
 const tiffResume = require("../Images/flaniganResume.tiff");
 
-const Konva = () => {
+const Konva = (page) => {
   const [image, setImage] = useState();
+  console.log(page.index);
 
   useEffect(() => {
     const xhr = new XMLHttpRequest();
@@ -13,7 +14,7 @@ const Konva = () => {
     xhr.onload = (e) => {
       console.log(e.target.response);
       const ifds = UTIF.decode(e.target.response);
-      const firstPageOfTif = ifds[0];
+      const firstPageOfTif = ifds[page.index];
       UTIF.decodeImage(e.target.response, firstPageOfTif);
       const rgba = UTIF.toRGBA8(firstPageOfTif);
 
