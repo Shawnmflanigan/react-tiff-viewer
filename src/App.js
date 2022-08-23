@@ -1,11 +1,11 @@
 import "./App.css";
-import AppViewer from "./Components/Viewer";
+
+import Zoom from "./Components/ZoomPanPinch";
 
 function App() {
   return (
     <div className="App">
-      <AppViewer />
-      <p>Hello World</p>
+      <Zoom />
     </div>
   );
 }
