@@ -10,7 +10,7 @@ function App() {
   return (
     <TiffContext>
       <Card className="tiff-container d-flex justify-content-center text-center">
-        <CardTitle>React Tiff Viewer</CardTitle>
+        <CardTitle className="card-head">React Tiff Viewer</CardTitle>
         <CardBody>
           {" "}
           <SelectPage />

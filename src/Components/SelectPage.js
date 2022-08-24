@@ -8,7 +8,7 @@ const SelectPage = () => {
     return (
       <button
         type="button"
-        class="btn btn-primary btn-large fs-1 mx-3 mb-4"
+        class="btn btn-secondary btn-sm fs-1 mx-3 mb-4"
         onClick={() => {
           setPageNumber(page.id);
         }}
