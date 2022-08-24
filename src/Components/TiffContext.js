@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import UTIF from "utif";
 
-const tiffResume = require("../Images/flaniganResume.tiff");
+const tiffImage = require("../Images/flaniganResume.tiff");
 
 const Context = createContext();
 
@@ -18,7 +18,7 @@ export const TiffContext = ({ children }) => {
 
   useEffect(() => {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", tiffResume);
+    xhr.open("GET", tiffImage);
     xhr.responseType = "arraybuffer";
     xhr.onload = (e) => {
       const ifds = UTIF.decode(e.target.response);
