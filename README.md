@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# React Tiff Viewer
+
+A simple react tiff viewer component for displaying, zooming, pinching, and scrolling .tiff files.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Usage
 
-In the project directory, you can run:
+After forking into your local environment `npm i` will install all dependancies.
 
-### `npm start`
+`npm run start` will open the app on your default browser at `localhost:3000`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Notable Dependancies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-[UTIF](https://www.npmjs.com/package/utif) handles decoding tiff images.
 
-### `npm test`
+-[Konva](https://www.npmjs.com/package/react-konva) is able to display the newly decoded images.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-[Zoom-Pan-Pinch](https://www.npmjs.com/package/react-zoom-pan-pinch) is a simple react component for container interactions.
 
-### `npm run build`
+All dependancies are stable, with high weekly downloads, and regular commits.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Considerations
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-There are a variety of options for displaying .tiff files but very few that do not require using a third-party, paid, service. In building this application I tested [tiff.js](https://github.com/seikichi/tiff.js/blob/master/README.md) as well as [tiff](https://www.npmjs.com/package/tiff) with varying degrees of success. UTIF was more stable (read: not abandoned) and was more React friendly and so, in the end, I decided on UTIF for tiff file decoding.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-The same can be said for both tiff file display as well as image interactions. I opted for Konva and Zoom-Pan-Pinch for much the same reasons as I did UTIF.
 
-### `npm run eject`
+-I'm aware this is ugly and would love to spend some more time styling it beyond just some basic bootstrap.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-Currently this is not very mobile friendly and is best viewed full page in the desktop. I would like to fix that.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-Additionally, there seems to be some issues with the quality of the image when zooming in. I would like to fix that as well.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-If you wish to change the .tiff you are using upload to `src/Images` and change the `tiffImage` variable in `src/Components/TiffDisplay`. I would like to add some functionality for uploading and selecting different documents.
