@@ -14,6 +14,7 @@ const Context = createContext();
 
 export const TiffContext = ({ children }) => {
   const [pages, setPages] = useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
 
   useEffect(() => {
     const xhr = new XMLHttpRequest();
@@ -24,7 +25,7 @@ export const TiffContext = ({ children }) => {
 
       const pages = [];
 
-      ifds.forEach((page, i) => pages.push(i));
+      ifds.forEach((page, i) => pages.push({ id: i, number: i + 1 }));
       setPages(pages);
     };
 
@@ -33,10 +34,12 @@ export const TiffContext = ({ children }) => {
 
   const value = useMemo(
     () => ({
+      pageNumber,
+      setPageNumber,
       pages,
       setPages,
     }),
-    [pages]
+    [pageNumber, pages]
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

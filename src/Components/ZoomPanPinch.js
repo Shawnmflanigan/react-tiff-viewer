@@ -5,17 +5,14 @@ import TiffDisplay from "./TiffDisplay";
 import { useTiffContext } from "./TiffContext";
 
 export const Zoom = () => {
-  const { pages } = useTiffContext();
+  const { pageNumber } = useTiffContext();
 
-  console.log(pages);
+  console.log(pageNumber);
 
   return (
     <TransformWrapper>
       <TransformComponent>
-        <TiffDisplay index={0} />
-      </TransformComponent>
-      <TransformComponent>
-        <TiffDisplay index={1} />
+        <TiffDisplay index={pageNumber} />
       </TransformComponent>
     </TransformWrapper>
   );
