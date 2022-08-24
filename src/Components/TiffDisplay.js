@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import UTIF from "utif";
 import { Image, Layer, Stage } from "react-konva";
+import { useTiffContext } from "./TiffContext";
 const tiffResume = require("../Images/flaniganResume.tiff");
 
 const TiffDisplay = (page) => {
   // TODO--Maybe move this up to context.
   const [image, setImage] = useState();
+  const pages = useTiffContext();
 
   // Set image based on canvas image data
   useEffect(() => {
@@ -38,11 +40,11 @@ const TiffDisplay = (page) => {
 
     xhr.send();
   }, [page.index]);
-
+  console.log(pages);
   // Konva image viewer
   return (
     <Stage
-      width={window.innerWidth / 2}
+      width={window.innerWidth / pages.pages.length}
       height={window.innerHeight}
       className={"zoom-stage"}
     >
