@@ -3,7 +3,7 @@ import UTIF from "utif";
 import { Image, Layer, Stage } from "react-konva";
 const tiffResume = require("../Images/flaniganResume.tiff");
 
-const Konva = (page) => {
+const TiffDisplay = (page) => {
   const [image, setImage] = useState();
   console.log(page.index);
 
@@ -14,12 +14,12 @@ const Konva = (page) => {
     xhr.onload = (e) => {
       console.log(e.target.response);
       const ifds = UTIF.decode(e.target.response);
-      const firstPageOfTif = ifds[page.index];
-      UTIF.decodeImage(e.target.response, firstPageOfTif);
-      const rgba = UTIF.toRGBA8(firstPageOfTif);
+      const pageOfTiff = ifds[page.index];
+      UTIF.decodeImage(e.target.response, pageOfTiff);
+      const rgba = UTIF.toRGBA8(pageOfTiff);
 
-      const imageWidth = firstPageOfTif.width;
-      const imageHeight = firstPageOfTif.height;
+      const imageWidth = pageOfTiff.width;
+      const imageHeight = pageOfTiff.height;
 
       const cnv = document.createElement("canvas");
       cnv.width = imageWidth;
@@ -35,14 +35,10 @@ const Konva = (page) => {
       ctx.putImageData(imageData, 0, 0);
 
       setImage(cnv);
-
-      // this.setState({
-      //   image: cnv,
-      // });
     };
 
     xhr.send();
-  }, []);
+  }, [page.index]);
 
   return (
     <Stage width={window.innerWidth} height={window.innerHeight}>
@@ -53,4 +49,4 @@ const Konva = (page) => {
   );
 };
 
-export default Konva;
+export default TiffDisplay;
