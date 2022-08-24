@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import UTIF from "utif";
 import { Image, Layer, Stage } from "react-konva";
-import { useTiffContext } from "./TiffContext";
 const tiffResume = require("../Images/flaniganResume.tiff");
 
 const TiffDisplay = (page) => {
   const [image, setImage] = useState();
-  const { setPages } = useTiffContext();
 
   useEffect(() => {
     const xhr = new XMLHttpRequest();
@@ -14,11 +12,6 @@ const TiffDisplay = (page) => {
     xhr.responseType = "arraybuffer";
     xhr.onload = (e) => {
       const ifds = UTIF.decode(e.target.response);
-
-      const pages = [];
-
-      ifds.forEach((page, i) => pages.push(i));
-      setPages(pages);
 
       const pageOfTiff = ifds[page.index];
       UTIF.decodeImage(e.target.response, pageOfTiff);
