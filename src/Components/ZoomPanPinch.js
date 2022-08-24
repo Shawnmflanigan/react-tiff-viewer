@@ -7,8 +7,6 @@ import { useTiffContext } from "./TiffContext";
 export const Zoom = () => {
   const { pageNumber } = useTiffContext();
 
-  console.log(pageNumber);
-
   return (
     <TransformWrapper>
       <TransformComponent>

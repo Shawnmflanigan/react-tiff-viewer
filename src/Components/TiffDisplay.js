@@ -4,8 +4,10 @@ import { Image, Layer, Stage } from "react-konva";
 const tiffResume = require("../Images/flaniganResume.tiff");
 
 const TiffDisplay = (page) => {
+  // TODO--Maybe move this up to context.
   const [image, setImage] = useState();
 
+  // Set image based on canvas image data
   useEffect(() => {
     const xhr = new XMLHttpRequest();
     xhr.open("GET", tiffResume);
@@ -37,6 +39,7 @@ const TiffDisplay = (page) => {
     xhr.send();
   }, [page.index]);
 
+  // Konva image viewer
   return (
     <Stage
       width={window.innerWidth / 2}
