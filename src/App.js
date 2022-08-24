@@ -1,12 +1,13 @@
 import "./App.css";
+import { TiffContext } from "./Components/TiffContext";
 
 import Zoom from "./Components/ZoomPanPinch";
 
 function App() {
   return (
-    <div className="App">
+    <TiffContext>
       <Zoom />
-    </div>
+    </TiffContext>
   );
 }
 
