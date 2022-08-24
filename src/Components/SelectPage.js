@@ -7,6 +7,8 @@ const SelectPage = () => {
   return pages.map((page) => {
     return (
       <button
+        type="button"
+        class="btn btn-primary btn-large fs-1 mx-3 mb-4"
         onClick={() => {
           setPageNumber(page.id);
         }}

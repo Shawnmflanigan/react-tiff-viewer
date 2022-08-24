@@ -38,7 +38,11 @@ const TiffDisplay = (page) => {
   }, [page.index]);
 
   return (
-    <Stage width={window.innerWidth} height={window.innerHeight}>
+    <Stage
+      width={window.innerWidth / 2}
+      height={window.innerHeight}
+      className={"zoom-stage"}
+    >
       <Layer>
         <Image image={image} />
       </Layer>
